@@ -25,7 +25,7 @@ namespace TestSolutionWebAPI
         public string[]? creators { get; set; }
         public string[]? categories { get; set; }
 
-        //public Creators[]? creators { get; set; } needed for database  //navigation property
+        //public Creators[]? creators { get; set; } //needed for database, navigation property
         //public Categories[]? categories { get; set; } // -""-             -""-
 
         //public List<string>? creators { get; set; } alternative for database
@@ -41,12 +41,12 @@ namespace TestSolutionWebAPI
 
     public class Creators
     {
-        //public int Id { get; set; } // -""-
+        //public int Id { get; set; } // needed for database
         public string? Name { get; set; }
     }
     public class Categories
     {
-        //public int Id { get; set; } // -""-
+        //public int Id { get; set; } // needed for database
         public string? Category { get; set; }
     }
 

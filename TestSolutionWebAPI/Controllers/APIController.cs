@@ -17,7 +17,9 @@ namespace TestSolutionWebAPI.Controllers
         public IEnumerable<Boardgame> Get()  //Gets the whole array/list with boardgames
         {
             string? jsonText = null;
-            using (var streamReader = new StreamReader(@"C:\Users\hakan\Downloads\json_response_senarion_webapp.json"))
+            //fetch Senarion json file from disc
+            //using (var streamReader = new StreamReader(@"C:\Users\hakan\Downloads\json_response_senarion_webapp.json"))
+            using (var streamReader = new StreamReader(@"C:\json_response_senarion_webapp.json"))
             {
                 jsonText = streamReader.ReadToEnd();
             }
@@ -40,10 +42,11 @@ namespace TestSolutionWebAPI.Controllers
         // GET api/<APIController>/5
         [HttpGet("{id}")]
         //public string Get(int id)
-        public string Get(string id)
+        public string Get(string id) //id in Json text is "string"
         {
             string? jsonText = null;
-            using (var streamReader = new StreamReader(@"C:\Users\hakan\Downloads\json_response_senarion_webapp.json"))
+            //using (var streamReader = new StreamReader(@"C:\Users\hakan\Downloads\json_response_senarion_webapp.json"))
+            using (var streamReader = new StreamReader(@"C:\json_response_senarion_webapp.json"))
             {
                 jsonText = streamReader.ReadToEnd();
             }
@@ -61,7 +64,7 @@ namespace TestSolutionWebAPI.Controllers
 
             else
             {
-                return boardgame.ToJson(); // or .ToArray()?
+                return boardgame.ToJson(); 
             }
 
         }

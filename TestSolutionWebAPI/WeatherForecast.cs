@@ -1,5 +1,6 @@
 /*
   Template for MS C# API-project
+  Not used! Only for presentation
 */
 
 
