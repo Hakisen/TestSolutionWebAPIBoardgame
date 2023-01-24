@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using NuGet.Protocol;
 using System.Collections.Immutable;
+using static System.Net.Mime.MediaTypeNames;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,6 +23,7 @@ namespace TestSolutionWebAPI.Controllers
             using (var streamReader = new StreamReader(@"C:\json_response_senarion_webapp.json"))
             {
                 jsonText = streamReader.ReadToEnd();
+                //jsonText = await streamReader.ReadToEndAsync(); //kräver asynk metod
             }
 
             var bGame = JsonConvert.DeserializeObject<List<Boardgame>>(jsonText);
@@ -42,6 +44,8 @@ namespace TestSolutionWebAPI.Controllers
         // GET api/<APIController>/5
         [HttpGet("{id}")]
         //public string Get(int id)
+
+        //public async Task<ActionResult<List<Boardgame>>> Get()
         public string Get(string id) //id in Json text is "string"
         {
             string? jsonText = null;
